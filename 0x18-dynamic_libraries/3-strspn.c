@@ -4,30 +4,32 @@
  * *_strspn - gets the length of a prefix substring
  * @s: string to evaluate
  * @accept: string containing the list of characters to match in s
+ *
  * Return: the number of bytes in the initial segment
  * of s which consist only of bytes from accept
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	int a, b, c, d;
+	int i, j, f, flag;
 
-	c = 0;
+	f = 0;
 
-	for (a = 0; s[a] != '\0'; a++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		d = 0;
-		for (b = 0; accept[b] != '\0'; b++)
+		flag = 0;
+		for (j = 0; accept[j] != '\0'; j++)
 		{
-			if (s[a] == accept[b])
+			if (s[i] == accept[j])
 			{
-				c++;
-				d = 1;
+				f++;
+				flag = 1;
 			}
 		}
-		if (d == 0)
+		if (flag == 0)
 		{
-			return (c);
+			return (f);
 		}
 	}
+
 	return (0);
 }
